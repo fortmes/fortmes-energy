@@ -6,7 +6,6 @@ import voluptuous as vol
 #import homeassistant.helpers.config_validation as cv
 from homeassistant import config_entries
 #from homeassistant.helpers import config_entry_oauth2_flow
-from fortmes.pypi import Auth0DeviceAuth
 
 DOMAIN = "fortmes_energy"
 
@@ -25,7 +24,6 @@ class ConfigFlow(config_entries.ConfigFlow, domain=DOMAIN):
         if user_input is not None:
             # Validate user input and create/update config entry here
             # Return the config entry data
-            Auth0DeviceAuth("your_client_id", "your_auth0_domain")
         # Display the user input form
             return self.async_show_form(
                 step_id="user",
