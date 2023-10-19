@@ -1,3 +1,5 @@
+"""conflig flow handing the install"""
+
 import logging
 import asyncio
 import voluptuous as vol

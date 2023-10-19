@@ -1,3 +1,4 @@
+"""Main py loading the integration"""
 # __init__.py
 
 from homeassistant.helpers import config_entry_oauth2_flow
