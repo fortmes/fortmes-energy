@@ -1,4 +1,4 @@
-"""Main py loading the integration"""
+"""Main py loading the integration."""
 # __init__.py
 
 from homeassistant.helpers import config_entry_oauth2_flow
@@ -24,6 +24,7 @@ async def async_setup_entry(hass, config_entry):
 
         # Your code to interact with your Python package goes here
         tokens = await auth.authenticate()
+        print (tokens)
         # Use the tokens or do other integration-specific tasks
 
     return True

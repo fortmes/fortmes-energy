@@ -1,11 +1,11 @@
-"""conflig flow handing the install"""
+"""conflig flow handing the install."""
 
 import logging
-import asyncio
+#import asyncio
 import voluptuous as vol
-import homeassistant.helpers.config_validation as cv
+#import homeassistant.helpers.config_validation as cv
 from homeassistant import config_entries
-from homeassistant.helpers import config_entry_oauth2_flow
+#from homeassistant.helpers import config_entry_oauth2_flow
 from fortmes.pypi import Auth0DeviceAuth
 
 DOMAIN = "fortmes_energy"
@@ -21,10 +21,11 @@ class ConfigFlow(config_entries.ConfigFlow, domain=DOMAIN):
     """Config flow for fortmes-energy."""
 
     async def async_step_user(self, user_input=None):
+        """Config flow for fortmes-energy."""
         if user_input is not None:
             # Validate user input and create/update config entry here
             # Return the config entry data
-
+            Auth0DeviceAuth("your_client_id", "your_auth0_domain")
         # Display the user input form
             return self.async_show_form(
                 step_id="user",
@@ -32,4 +33,4 @@ class ConfigFlow(config_entries.ConfigFlow, domain=DOMAIN):
                     vol.Required("client_id"): str,
                     vol.Required("auth0_domain"): str,
                 }),
-            )
+            )  
