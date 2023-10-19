@@ -1,80 +1,33 @@
-"""Adds config flow for Blueprint."""
-from __future__ import annotations
-
+import logging
+import asyncio
 import voluptuous as vol
+import homeassistant.helpers.config_validation as cv
 from homeassistant import config_entries
-from homeassistant.const import CONF_PASSWORD, CONF_USERNAME
-from homeassistant.helpers import selector
-from homeassistant.helpers.aiohttp_client import async_create_clientsession
+from homeassistant.helpers import config_entry_oauth2_flow
+from fortmes.pypi import Auth0DeviceAuth
 
-from .api import (
-    IntegrationBlueprintApiClient,
-    IntegrationBlueprintApiClientAuthenticationError,
-    IntegrationBlueprintApiClientCommunicationError,
-    IntegrationBlueprintApiClientError,
-)
-from .const import DOMAIN, LOGGER
+DOMAIN = "fortmes_energy"
 
+_LOGGER = logging.getLogger(__name__)
 
-class BlueprintFlowHandler(config_entries.ConfigFlow, domain=DOMAIN):
-    """Config flow for Blueprint."""
+async def async_setup(hass, config):
+    """Set up the fortmes-energy integration."""
+    # Your integration setup code here
+    return True
 
-    VERSION = 1
+class ConfigFlow(config_entries.ConfigFlow, domain=DOMAIN):
+    """Config flow for fortmes-energy."""
 
-    async def async_step_user(
-        self,
-        user_input: dict | None = None,
-    ) -> config_entries.FlowResult:
-        """Handle a flow initialized by the user."""
-        _errors = {}
+    async def async_step_user(self, user_input=None):
         if user_input is not None:
-            try:
-                await self._test_credentials(
-                    username=user_input[CONF_USERNAME],
-                    password=user_input[CONF_PASSWORD],
-                )
-            except IntegrationBlueprintApiClientAuthenticationError as exception:
-                LOGGER.warning(exception)
-                _errors["base"] = "auth"
-            except IntegrationBlueprintApiClientCommunicationError as exception:
-                LOGGER.error(exception)
-                _errors["base"] = "connection"
-            except IntegrationBlueprintApiClientError as exception:
-                LOGGER.exception(exception)
-                _errors["base"] = "unknown"
-            else:
-                return self.async_create_entry(
-                    title=user_input[CONF_USERNAME],
-                    data=user_input,
-                )
+            # Validate user input and create/update config entry here
+            # Return the config entry data
 
-        return self.async_show_form(
-            step_id="user",
-            data_schema=vol.Schema(
-                {
-                    vol.Required(
-                        CONF_USERNAME,
-                        default=(user_input or {}).get(CONF_USERNAME),
-                    ): selector.TextSelector(
-                        selector.TextSelectorConfig(
-                            type=selector.TextSelectorType.TEXT
-                        ),
-                    ),
-                    vol.Required(CONF_PASSWORD): selector.TextSelector(
-                        selector.TextSelectorConfig(
-                            type=selector.TextSelectorType.PASSWORD
-                        ),
-                    ),
-                }
-            ),
-            errors=_errors,
-        )
-
-    async def _test_credentials(self, username: str, password: str) -> None:
-        """Validate credentials."""
-        client = IntegrationBlueprintApiClient(
-            username=username,
-            password=password,
-            session=async_create_clientsession(self.hass),
-        )
-        await client.async_get_data()
+        # Display the user input form
+            return self.async_show_form(
+                step_id="user",
+                data_schema=vol.Schema({
+                    vol.Required("client_id"): str,
+                    vol.Required("auth0_domain"): str,
+                }),
+            )
