@@ -1,10 +1,14 @@
 """Main py loading the integration."""
 # __init__.py
 
+import logging
+
 from homeassistant.helpers import config_entry_oauth2_flow
 from fortmes.pypi import Auth0DeviceAuth  # Import your package
 
 DOMAIN = "fortmes_energy"
+
+_LOGGER = logging.getLogger(__name__)
 
 async def async_setup(hass, config):
     """Set up the fortmes-energy integration."""
@@ -24,7 +28,7 @@ async def async_setup_entry(hass, config_entry):
 
         # Your code to interact with your Python package goes here
         tokens = await auth.authenticate()
-        print (tokens)
+        logging.info(tokens)
         # Use the tokens or do other integration-specific tasks
 
     return True

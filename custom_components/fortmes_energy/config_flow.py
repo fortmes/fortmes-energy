@@ -33,4 +33,4 @@ class ConfigFlow(config_entries.ConfigFlow, domain=DOMAIN):
                     vol.Required("client_id"): str,
                     vol.Required("auth0_domain"): str,
                 }),
-            )  
+            )
