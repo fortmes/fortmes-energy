@@ -5,7 +5,7 @@ LOGGER: Logger = getLogger(__package__)
 
 NAME = "Fortmes Energy"
 DOMAIN = "fortmes_energy"
-VERSION = "0.0.1"
+VERSION = "0.0.2"
 CLIENT_ID = "WxzBvwjGrWyjhcNs9vSH9dPqhE5mFplS"
 AUTH0_DOMAIN = "dev-fortmes.eu.auth0.com"
 
