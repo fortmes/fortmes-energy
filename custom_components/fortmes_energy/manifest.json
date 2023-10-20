@@ -7,5 +7,5 @@
   "iot_class": "cloud_polling",
   "issue_tracker": "https://github.com/fortmes/fortmes-energy",
   "requirements": ["fortmes.pypi>=0.1.5"],
-  "version": "0.0.7"
+  "version": "0.0.9"
 }
