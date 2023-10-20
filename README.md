@@ -1,8 +1,8 @@
 # Fortmes Energy
 
-<!----
 [![GitHub Release][releases-shield]][releases]
-[![GitHub Activity][commits-shield]][commits]
+
+<!----[![GitHub Activity][commits-shield]][commits]
 [![License][license-shield]](LICENSE)
 
 ![Project Maintenance][maintenance-shield]
@@ -57,6 +57,6 @@ If you want to contribute to this please read the [Contribution guidelines](CONT
 
 [license-shield]: https://img.shields.io/github/license/ludeeus/fortmes_energy.svg?style=for-the-badge
 [maintenance-shield]: https://img.shields.io/badge/maintainer-Joakim%20Sørensen%20%40ludeeus-blue.svg?style=for-the-badge
-[releases-shield]: https://img.shields.io/github/release/ludeeus/fortmes_energy.svg?style=for-the-badge
-[releases]: https://github.com/ludeeus/fortmes_energy/releases
--->
+[releases-shield]: https://img.shields.io/github/release/ludeeus/fortmes_energy.svg?style=for-the-badge-->
+
+[releases]: https://github.com/fortmes/fortmes_energy/releases
