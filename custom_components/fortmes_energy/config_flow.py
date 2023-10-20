@@ -13,6 +13,7 @@ _LOGGER = logging.getLogger(__name__)
 
 async def async_setup(hass, config):
     """Set up the fortmes-energy integration."""
+    logging.info("Empty setup started2")
     # Your integration setup code here
     return True
 
@@ -21,6 +22,8 @@ class ConfigFlow(config_entries.ConfigFlow, domain=DOMAIN):
 
     async def async_step_user(self, user_input=None):
         """Config flow for fortmes-energy."""
+        logging.info("User flow started")
+
         if user_input is not None:
             # Validate user input and create/update config entry here
             # Return the config entry data
