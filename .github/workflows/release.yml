@@ -1,10 +1,10 @@
 name: "Release"
 
 on:
-  push
-  # release:
-  #   types:
-  #     - "published"
+  #push
+  release:
+    types:
+      - "published"
 
 permissions: {}
 
