@@ -1,14 +1,16 @@
 name: "Release"
 
 on:
-  release:
-    types:
-      - "published"
+  push
+  # release:
+  #   types:
+  #     - "published"
 
 permissions: {}
 
 jobs:
   release:
+    if: startsWith(github.ref , 'refs/tags/') != true
     name: "Release"
     runs-on: "ubuntu-latest"
     permissions:
