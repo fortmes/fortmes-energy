@@ -4,7 +4,7 @@
 import logging
 
 from homeassistant.helpers import config_entry_oauth2_flow
-from fortmes.pypi import Auth0DeviceAuth  # Import your package
+from fortmes_pypi import Auth0DeviceAuth  # Import your package
 
 DOMAIN = "fortmes_energy"
 
