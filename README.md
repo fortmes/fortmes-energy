@@ -1,5 +1,6 @@
-# Integration Blueprint
+# Fortmes Energy
 
+<!----
 [![GitHub Release][releases-shield]][releases]
 [![GitHub Activity][commits-shield]][commits]
 [![License][license-shield]](LICENSE)
@@ -9,6 +10,7 @@
 
 [![Discord][discord-shield]][discord]
 [![Community Forum][forum-shield]][forum]
+-->
 
 _Integration to integrate with [fortmes_energy][fortmes_energy]._
 
@@ -40,7 +42,9 @@ If you want to contribute to this please read the [Contribution guidelines](CONT
 
 ---
 
-[fortmes_energy]: https://github.com/ludeeus/fortmes_energy
+[fortmes_energy]: https://github.com/fortmes/fortmes_energy
+
+<!----
 [buymecoffee]: https://www.buymeacoffee.com/ludeeus
 [buymecoffeebadge]: https://img.shields.io/badge/buy%20me%20a%20coffee-donate-yellow.svg?style=for-the-badge
 [commits-shield]: https://img.shields.io/github/commit-activity/y/ludeeus/fortmes_energy.svg?style=for-the-badge
@@ -50,7 +54,9 @@ If you want to contribute to this please read the [Contribution guidelines](CONT
 [exampleimg]: example.png
 [forum-shield]: https://img.shields.io/badge/community-forum-brightgreen.svg?style=for-the-badge
 [forum]: https://community.home-assistant.io/
+
 [license-shield]: https://img.shields.io/github/license/ludeeus/fortmes_energy.svg?style=for-the-badge
 [maintenance-shield]: https://img.shields.io/badge/maintainer-Joakim%20Sørensen%20%40ludeeus-blue.svg?style=for-the-badge
 [releases-shield]: https://img.shields.io/github/release/ludeeus/fortmes_energy.svg?style=for-the-badge
 [releases]: https://github.com/ludeeus/fortmes_energy/releases
+-->
