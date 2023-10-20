@@ -27,11 +27,12 @@ class ConfigFlow(config_entries.ConfigFlow, domain=DOMAIN):
         if user_input is not None:
             # Validate user input and create/update config entry here
             # Return the config entry data
+             return self.async_create_entry(title="Example Entry", data=user_input)
         # Display the user input form
-            return self.async_show_form(
-                step_id="user",
-                data_schema=vol.Schema({
-                    vol.Required("client_id"): str,
-                    vol.Required("auth0_domain"): str,
-                }),
-            )
+        return self.async_show_form(
+            step_id="user",
+            data_schema=vol.Schema({
+                vol.Required("client_id"): str,
+                vol.Required("auth0_domain"): str,
+            }),
+        )
