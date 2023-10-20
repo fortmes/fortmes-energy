@@ -4,7 +4,7 @@
 import logging
 
 from homeassistant.helpers import config_entry_oauth2_flow
-from fortmes_pypi import Auth0DeviceAuth  # Import your package
+from fortmes_pypi import Auth0Client  # Import your package
 
 DOMAIN = "fortmes_energy"
 
@@ -24,7 +24,7 @@ async def async_setup_entry(hass, config_entry):
         implementation = await config_entry_oauth2_flow.async_get_config_entry_implementation(
             hass, config_entry
         )
-        auth = Auth0DeviceAuth(
+        auth = Auth0Client(
             implementation.client_id,
             implementation.auth0_domain
         )
