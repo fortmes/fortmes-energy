@@ -27,12 +27,25 @@ class ConfigFlow(config_entries.ConfigFlow, domain=DOMAIN):
         if user_input is not None:
             # Validate user input and create/update config entry here
             # Return the config entry data
-             return self.async_create_entry(title="Example Entry", data=user_input)
+             return self.async_create_entry(title="Fortmes Energy", data=user_input)
         # Display the user input form
-        return self.async_show_form(
-            step_id="user",
-            data_schema=vol.Schema({
-                vol.Required("client_id"): str,
-                vol.Required("auth0_domain"): str,
-            }),
-        )
+        device_code, verification_uri = self._start_auth0_device_auth()
+        logging.info(device_code)
+        return self.async_show_form(step_id="user", data_schema=None, description_placeholders={"device_code": device_code, "verification_uri": verification_uri})
+
+        # return self.async_show_form(
+        #     step_id="user",
+        #     data_schema=vol.Schema({
+        #         vol.Required("client_id"): str,
+        #         vol.Required("auth0_domain"): str,
+        #     }),
+        # )
+
+
+    def _start_auth0_device_auth(self):
+            """This is something nasty"""
+            # Make an HTTP request to Auth0 to start the Device Authorization Flow
+            # Obtain the device code and verification URI
+            device_code = "0 3 4 5 6"
+            verification_uri = "https://google.com"
+            return device_code, verification_uri
