@@ -2,13 +2,18 @@
   "config": {
     "step": {
       "user": {
-        "description": "If you need help with the configuration have a look here: https://github.com/fortmes/fortmes-energy\n\n Please the {device_code} to add to AUTH0 service!"
+        "description": "If you need help with the configuration have a look here: https://github.com/fortmes/fortmes-energy\n\n\n\n Your authorization code: \n\n{user_code}\n\n Please click on {authorization_uri} and enter your code!"
+      },
+      "validation": {
+        "description": "The user-code validation process has finished with successfully"
       }
     },
     "error": {
       "auth": "Username/Password is wrong.",
       "connection": "Unable to connect to the server.",
-      "unknown": "Unknown error occurred."
+      "unknown": "Unknown error occurred.",
+      "authentication_notfinished": "Please validate the user-code before going to the next step!",
+      "authentication_failed": "The user-code validation failed. Please restart the setup."
     }
   }
 }

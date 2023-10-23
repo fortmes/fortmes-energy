@@ -4,7 +4,8 @@
 import logging
 
 from homeassistant.helpers import config_entry_oauth2_flow
-from fortmes_pypi import Auth0Client  # Import your package
+#from .config_flow import ConfigFlow
+
 
 DOMAIN = "fortmes_energy"
 
@@ -13,25 +14,27 @@ _LOGGER = logging.getLogger(__name__)
 async def async_setup(hass, config):
     """Set up the fortmes-energy integration."""
     logging.info("Empty setup started")
+    #logging.info(await ConfigFlow.auth)
+    #auth_instance = hass.data[DOMAIN]['auth']
+    #device_code, user_code, authorization_uri = await auth_instance.device_authorization()
+    #logging.info(user_code)
+
     # Your integration setup code here
     return True
 
 async def async_setup_entry(hass, config_entry):
     """Set up the fortmes-energy integration."""
-    logging.info("Started setup with init")
+    logging.info("Started setup_entry")
+    # auth_instance = hass.data[DOMAIN]['auth']
+    # device_code, user_code, authorization_uri = await auth_instance.device_authorization()
 
     if config_entry.data.get("flow_id"):
-        implementation = await config_entry_oauth2_flow.async_get_config_entry_implementation(
-            hass, config_entry
-        )
-        auth = Auth0Client(
-            implementation.client_id,
-            implementation.auth0_domain
-        )
+        logging.info("Setup finished")
+        ## At this point the configuration is on the next step
+        ### Needs to validate token and fail if something goes wrong.
+        #auth_instance = hass.data[DOMAIN]['auth']
+        #device_code, user_code, authorization_uri = await auth_instance.device_authorization()
+        #logging.info(user_code)
 
-        # Your code to interact with your Python package goes here
-        tokens = await auth.authenticate()
-        logging.info(tokens)
-        # Use the tokens or do other integration-specific tasks
 
     return True
