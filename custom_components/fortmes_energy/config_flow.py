@@ -26,6 +26,7 @@ class ConfigFlow(config_entries.ConfigFlow, domain=DOMAIN):
 
     def __init__(self) -> None:
         self.auth = self._start_auth0_device_auth()
+        #self.auth = Auth0Client()
         self.user_code = ''
 
     async def async_step_user(self, user_input=None):
@@ -52,17 +53,17 @@ class ConfigFlow(config_entries.ConfigFlow, domain=DOMAIN):
         ## Wait until the config is done
         errors=[]
         access_token = ""
-        try:
-            access_token = await self.auth.token_validation()
-            access_token.raise_for_status()
-        except HTTPError as e:
 
-            # Code to handle the exception
-            if access_token.status_code == 404:
-                errors["authentication"] = "authentication_notfinished"
-                _LOGGER.error("Exception http error: %s", e)
+        try:
+            user_input = {}
+            access_token = await self.auth.token_validation()
+            #access_token.raise_for_status()
+            user_input["access_token"] = access_token
+            _LOGGER.info(access_token)
+
         except Exception as e:
             # Handle any other exceptions
+            #errors[0] = "authentication_notfinished"
             _LOGGER.error("Exception general error: %s", e)
 
 
@@ -70,6 +71,7 @@ class ConfigFlow(config_entries.ConfigFlow, domain=DOMAIN):
         if user_input is not None:
             # Validate user input and create/update config entry here
             # Return the config entry data
+            _LOGGER.info(self)
             final_data = {**self.context["user_input"], **user_input}
             _LOGGER.info("User_input is the following %s!", final_data)
             self.hass.data.setdefault(DOMAIN, {})
@@ -78,6 +80,7 @@ class ConfigFlow(config_entries.ConfigFlow, domain=DOMAIN):
         # if done print status
         return self.async_show_form(step_id="validate", data_schema=None,  errors=errors)
 
+### not needed anymore
     def _start_auth0_device_auth(self):
             """This function initializes the class for authentication."""
             # Make an HTTP request to Auth0 to start the Device Authorization Flow
