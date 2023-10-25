@@ -14,12 +14,6 @@ _LOGGER = logging.getLogger(__name__)
 async def async_setup(hass, config):
     """Set up the fortmes-energy integration."""
     logging.info("Empty setup started")
-    #logging.info(await ConfigFlow.auth)
-    #auth_instance = hass.data[DOMAIN]['auth']
-    #device_code, user_code, authorization_uri = await auth_instance.device_authorization()
-    #logging.info(user_code)
-
-    # Your integration setup code here
     return True
 
 async def async_setup_entry(hass, config_entry):

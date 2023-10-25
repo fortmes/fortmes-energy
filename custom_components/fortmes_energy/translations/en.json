@@ -1,8 +1,10 @@
 {
   "config": {
+    "flow_title": "Authenticate to Fortmes Cloud",
     "step": {
       "user": {
-        "description": "If you need help with the configuration have a look here: https://github.com/fortmes/fortmes-energy\n\n\n\n Your authorization code: \n\n{user_code}\n\n Please click on {authorization_uri} and enter your code!"
+        "title": "Login to Fortmes Cloud using 'User Code'",
+        "description": "\nYour authorization code: \n\n{user_code}\n\n Please click on {authorization_uri} and enter your code!\n\n\n\nShould you need any help with the configuration please have a look here: https://github.com/fortmes/fortmes-energy"
       },
       "validation": {
         "description": "The user-code validation process has finished with successfully"
@@ -12,8 +14,11 @@
       "auth": "Username/Password is wrong.",
       "connection": "Unable to connect to the server.",
       "unknown": "Unknown error occurred.",
-      "authentication_notfinished": "Please validate the user-code before going to the next step!",
       "authentication_failed": "The user-code validation failed. Please restart the setup."
+    },
+    "abort": {
+      "authentication_notfinished": "Please validate the user-code before going to the next step!",
+      "single_instance_allowed": "single_instance_allowed"
     }
   }
 }
