@@ -1,5 +1,5 @@
 colorlog==6.7.0
 homeassistant>=2023.9.3
 pip>=23.3
-ruff==0.1.6
+ruff==0.1.14
 fortmes-pypi>=0.1.5
